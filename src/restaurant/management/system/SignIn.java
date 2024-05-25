@@ -136,9 +136,9 @@ public class SignIn extends javax.swing.JFrame {
         });
         getContentPane().add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EMERALDBAYLOGO.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(200, 200));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 500, 470));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 200, 220, 300));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home-background-image.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

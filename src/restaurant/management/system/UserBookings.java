@@ -48,8 +48,9 @@ public class UserBookings extends javax.swing.JFrame {
         String mobile = txtMobile.getText();
         String tableNo = (String) ComboBoxTableNo.getSelectedItem();
         Date date = jDateChooser2.getDate();
-        String time = (String) jComboBoxTime.getSelectedItem();
-        if(email.matches(emailPattern) && mobile.matches(mobilePattern) && mobile.length()==10  && !name.equals("") && !tableNo.equals("") && date != null && !time.equals(""))
+        String start_time = (String) jComboBoxTime.getSelectedItem();
+        String end_time = (String) jComboBoxTime1.getSelectedItem();
+        if(email.matches(emailPattern) && mobile.matches(mobilePattern) && mobile.length()==10  && !name.equals("") && !tableNo.equals("") && date != null && !start_time.equals("")&& end_time.equals(""))
             btnCheckAvailability.setEnabled(true);
         else
             btnCheckAvailability.setEnabled(false);
@@ -89,7 +90,10 @@ public class UserBookings extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnClose = new javax.swing.JButton();
         jComboBoxTime = new javax.swing.JComboBox<>();
+        jComboBoxTime1 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -150,7 +154,7 @@ public class UserBookings extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Time :");
+        jLabel9.setText("Start Time :");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, -1));
 
         jDateChooser2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -192,7 +196,7 @@ public class UserBookings extends javax.swing.JFrame {
                 btnCheckAvailabilityActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCheckAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 190, 30));
+        getContentPane().add(btnCheckAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 190, 30));
 
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
@@ -202,7 +206,7 @@ public class UserBookings extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, -1, -1));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 670, -1, -1));
 
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete.png"))); // NOI18N
@@ -212,14 +216,14 @@ public class UserBookings extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 590, -1, -1));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Name", "Email", "Contact No.", "No. of Guests", "Table No.", "Date", "Time"
+                "ID", "Name", "Email", "Contact No.", "No. of Guests", "Table No.", "Date", "Start Time", "End Time"
             }
         ));
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,9 +248,23 @@ public class UserBookings extends javax.swing.JFrame {
         getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 70, 30, -1));
         getContentPane().add(jComboBoxTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 240, -1));
 
+        jComboBoxTime1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTime1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBoxTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 540, 240, -1));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setText("End Time :");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/full-page-background.PNG"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/full-page-background.PNG"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,17 +284,30 @@ public class UserBookings extends javax.swing.JFrame {
         String tableNo = (String) ComboBoxTableNo.getSelectedItem();
         Date date = jDateChooser2.getDate();
         // Get the selected time slot
-        String time = (String) jComboBoxTime.getSelectedItem();
-
+        String start_time = (String) jComboBoxTime.getSelectedItem();
+        String end_time = (String) jComboBoxTime1.getSelectedItem();
+        
         if (tableNo == null || date == null) {
             JOptionPane.showMessageDialog(null, "Please select a table, date, and time.");
             return;
         }
+        
+        if (start_time.equals(end_time)) {
+            JOptionPane.showMessageDialog(null, "Start Time and End Time Cannot same");
+            return;}
+//        }else if(start_time.isAfter(end_time)) {
+//            JOptionPane.showMessageDialog(null, "Start time cannot be after end time", "Invalid Time", JOptionPane.ERROR_MESSAGE);
+//      
+//            return;
+//        }
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = sdf.format(date);
 
-        String query = "SELECT * FROM booking WHERE tableNo = '" + tableNo + "' AND date = '" + formattedDate + "' AND time = '" + time + "'";
+//        String query = "SELECT * FROM booking WHERE tableNo = '" + tableNo + "' AND date = '" + formattedDate + "' AND time = '" + time + "'";
+//        ResultSet rs = DbOperations.getData(query);
+
+        String query = "SELECT * FROM booking WHERE tableNo = '" + tableNo + "' AND date = '" + formattedDate + "' AND (('" + start_time + "' < end_time AND '" + end_time + "' > start_time) OR ('" + start_time + "' = start_time AND '" + end_time + "' = end_time))";
         ResultSet rs = DbOperations.getData(query);
 
         try {
@@ -306,7 +337,8 @@ public class UserBookings extends javax.swing.JFrame {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = sdf.format(jDateChooser2.getDate());
         booking.setDate(formattedDate);
-        booking.setTime((String) jComboBoxTime.getSelectedItem());
+        booking.setStartTime((String) jComboBoxTime.getSelectedItem());
+        booking.setEndTime((String) jComboBoxTime1.getSelectedItem());
         
         int a = JOptionPane.showConfirmDialog(null,"Do yo want to Update Booking ? ","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
@@ -386,13 +418,18 @@ public class UserBookings extends javax.swing.JFrame {
             while(itr.hasNext()){
             Booking bookingObj = itr.next();
             //if(bookingObj.getEmail().equals(this.userEmail)) {
-                dtm.addRow(new Object[] {bookingObj.getId(),bookingObj.getName(),bookingObj.getEmail(),bookingObj.getMobile(),bookingObj.getGuests(),bookingObj.getTableNo(),bookingObj.getDate(),bookingObj.getTime()});
+                dtm.addRow(new Object[] {bookingObj.getId(),bookingObj.getName(),bookingObj.getEmail(),bookingObj.getMobile(),bookingObj.getGuests(),bookingObj.getTableNo(),bookingObj.getDate(),bookingObj.getStartTime(),bookingObj.getEndTime()});
             //}
         }
             
         for (int i = 8; i <= 19; i++) {
             String hour = String.format("%02d", i);
             jComboBoxTime.addItem(hour + ":00");
+        }
+        
+        for (int i = 8; i <= 19; i++) {
+            String hour = String.format("%02d", i);
+            jComboBoxTime1.addItem(hour + ":00");
         }
     }//GEN-LAST:event_formComponentShown
 
@@ -410,6 +447,10 @@ public class UserBookings extends javax.swing.JFrame {
         // TODO add your handling code here:
         validateFields();
     }//GEN-LAST:event_txtNameKeyReleased
+
+    private void jComboBoxTime1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTime1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTime1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -455,11 +496,14 @@ public class UserBookings extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> jComboBoxTime;
+    private javax.swing.JComboBox<String> jComboBoxTime1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

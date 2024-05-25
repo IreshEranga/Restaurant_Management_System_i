@@ -82,6 +82,7 @@ public class AddUser extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -224,6 +225,9 @@ public class AddUser extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 70, 40));
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/adduser.png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 290, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home-background-image.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1690, 960));
@@ -337,6 +341,7 @@ public class AddUser extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

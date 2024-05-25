@@ -16,8 +16,9 @@ public class Booking {
     private int guests;
     private String tableNo;
     private String date;
-    private String time;
-
+    private String start_time;
+    private String end_time;
+    
     public int getId() {
         return id;
     }
@@ -74,12 +75,20 @@ public class Booking {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
+    public String getStartTime() {
+        return start_time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setStartTime(String start_time) {
+        this.start_time = start_time;
+    }
+    
+    public String getEndTime() {
+        return end_time;
+    }
+
+    public void setEndTime(String end_time) {
+        this.end_time = end_time;
     }
     
     

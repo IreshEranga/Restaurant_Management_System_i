@@ -34,11 +34,21 @@ public class Welcome extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1024, 675));
+        setMinimumSize(new java.awt.Dimension(1024, 675));
+        setPreferredSize(new java.awt.Dimension(1024, 675));
+        setSize(new java.awt.Dimension(1024, 675));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextField1.setBackground(new java.awt.Color(204, 255, 255));
         jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 65)); // NOI18N
-        jTextField1.setText("Emerald Bay Restaurant");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 720, -1));
+        jTextField1.setText("Culture Colombo");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 520, -1));
 
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
         btnClose.addActionListener(new java.awt.event.ActionListener() {
@@ -46,7 +56,7 @@ public class Welcome extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 40, 40));
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 40, 40));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
@@ -56,10 +66,10 @@ public class Welcome extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 540, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 500, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IMG_0003.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1260, 770));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Welcome-Cafe-1024x675.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1260, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,6 +87,10 @@ public class Welcome extends javax.swing.JFrame {
         //setVisible(false);
         new SignIn().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

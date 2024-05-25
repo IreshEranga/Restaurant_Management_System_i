@@ -223,9 +223,9 @@ public class SignUp extends javax.swing.JFrame {
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 530, 100, 30));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EMERALDBAYLOGO.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(200, 200));
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 490, 480));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 240, 270));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home-background-image.png"))); // NOI18N
         jLabel9.setPreferredSize(new java.awt.Dimension(1366, 800));

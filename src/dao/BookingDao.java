@@ -32,7 +32,8 @@ public class BookingDao {
                 booking.setGuests(rs.getInt("guests"));
                 booking.setTableNo(rs.getString("tableNo"));
                 booking.setDate(rs.getString("date"));
-                booking.setTime(rs.getString("time"));
+                booking.setStartTime(rs.getString("start_time"));
+                booking.setEndTime(rs.getString("end_time"));
                 arrayList.add(booking);
             }
         }
@@ -57,7 +58,8 @@ public class BookingDao {
                 booking.setGuests(rs.getInt("guests"));
                 booking.setTableNo(rs.getString("tableNo"));
                 booking.setDate(rs.getString("date"));
-                booking.setTime(rs.getString("time"));
+                booking.setStartTime(rs.getString("start_time"));
+                booking.setEndTime(rs.getString("end_time"));
                 searchResults.add(booking);
             }
         } catch (Exception e) {
@@ -68,7 +70,7 @@ public class BookingDao {
     }
     
     public static void update(Booking booking){
-        String query = "update booking set name ='"+booking.getName()+"',email ='"+booking.getEmail()+"',mobile ='"+booking.getMobile()+"',guests ='"+booking.getGuests()+"',mobile ='"+booking.getMobile()+"',tableNo ='"+booking.getTableNo()+"',date ='"+booking.getDate()+"',time ='"+booking.getTime()+"' where id ='"+booking.getId()+"'";
+        String query = "update booking set name ='"+booking.getName()+"',email ='"+booking.getEmail()+"',mobile ='"+booking.getMobile()+"',guests ='"+booking.getGuests()+"',mobile ='"+booking.getMobile()+"',tableNo ='"+booking.getTableNo()+"',date ='"+booking.getDate()+"',start_time ='"+booking.getStartTime()+"',end_time ='"+booking.getEndTime()+"' where id ='"+booking.getId()+"'";
         DbOperations.setDataOrDelete(query, "Booking Updated Successfully !");
     }
     

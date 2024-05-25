@@ -74,8 +74,8 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Emerald Bay Restaurant");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 98, 472, -1));
+        jLabel2.setText("Culture Colombo");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 330, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/restaurant.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, 460));
